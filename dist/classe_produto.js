@@ -57,6 +57,7 @@ var Produtos = /** @class */ (function () {
         if (this.quantidade > 50) {
             return this.preco * 0.25;
         }
+        return 0;
     };
     Produtos.prototype.valorFinal = function () {
         return this.quantidade * this.preco - this.desconto();

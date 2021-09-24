@@ -54,6 +54,7 @@ class Produtos {
     if (this.quantidade > 50) {
       return this.preco * 0.25;
     }
+    return 0;
   }
   valorFinal() {
     return this.quantidade * this.preco - this.desconto();
