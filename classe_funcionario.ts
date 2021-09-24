@@ -16,85 +16,91 @@ de 999
 O funcionário de nome xx tem o salário bruto de 999, o desconto de 999, a PLR de
 999 e o salário líquido de 9999 */
 
-class Funcionarios{
+class Funcionarios {
   _nome: string;
   _salario: number;
   _dias_trabalhados: number;
   _faltas: number;
 
-  constructor(nome: string, salario:number; dias_trabalhados:number, faltas: number )
-{
-  this._nome = nome;
-  this._salario = salario;
-  this._dias_trabalhados = dias_trabalhados;
-  this._faltas = faltas
-}
-get nome(): string {
-  return this._nome;
-}
-get salario(): number{
-  return this._salario;
-}
-get dias_trabalhados(): number {
-  return this._dias_trabalhados
-}
-get faltas(): number {
-  return this._faltas;
-}
-set nome(nome: string){
-  this._nome = nome
-}
-set salario(salario: number){
-  this._salario = salario
-}
-
-set dias_trabalhador(dias_trabalhados: number){
-  this._dias_trabalhados = dias_trabalhados
-}
-
-set faltas(faltas: number){
-  this._faltas = faltas
-}
-
-salarioBruto(){
-  return this.salario * this.dias_trabalhados
-}
-
-calcPlr(){
-  if(this.faltas === 0 ){
-    return this.salarioBruto()
+  constructor(
+    nome: string,
+    salario: number,
+    dias_trabalhados: number,
+    faltas: number
+  ) {
+    this._nome = nome;
+    this._salario = salario;
+    this._dias_trabalhados = dias_trabalhados;
+    this._faltas = faltas;
   }
-  else if(this.faltas === 1){
-    return this.salarioBruto() * 0.94
+  get nome(): string {
+    return this._nome;
   }
-  else if(this.faltas === 2){
-    return this.salarioBruto() * 0.92
+  get salario(): number {
+    return this._salario;
   }
-  else if(this.faltas === 3){
-    return this.salarioBruto() * 0.90
+  get dias_trabalhados(): number {
+    return this._dias_trabalhados;
   }
-  else if(this.faltas === 4){
-    return this.salarioBruto() * 0.88
-  } else{
-    return 0
+  get faltas(): number {
+    return this._faltas;
+  }
+  set nome(nome: string) {
+    this._nome = nome;
+  }
+  set salario(salario: number) {
+    this._salario = salario;
+  }
+
+  set dias_trabalhador(dias_trabalhados: number) {
+    this._dias_trabalhados = dias_trabalhados;
+  }
+
+  set faltas(faltas: number) {
+    this._faltas = faltas;
+  }
+
+  salarioBruto() {
+    return this.salario * this.dias_trabalhados;
+  }
+
+  calcPlr() {
+    if (this.faltas === 0) {
+      return this.salarioBruto();
+    } else if (this.faltas === 1) {
+      return this.salarioBruto() * 0.94;
+    } else if (this.faltas === 2) {
+      return this.salarioBruto() * 0.92;
+    } else if (this.faltas === 3) {
+      return this.salarioBruto() * 0.9;
+    } else if (this.faltas === 4) {
+      return this.salarioBruto() * 0.88;
+    } else {
+      return 0;
+    }
+  }
+
+  descSalario() {
+    return this.salarioBruto() * 0.05;
+  }
+
+  salarioLiquido() {
+    return this.salarioBruto() - this.descSalario() + this.calcPlr();
   }
 }
 
-descSalario(){
-  return this.salarioBruto() * 0.05
-}
+const funcionarios = new Funcionarios("Gabriel", 80, 30, 2);
 
-salarioLiquido(){
-  return this.salarioBruto() - this.descSalario() + this.calcPlr()
-}
+console.log(
+  `O funcionário de nome ${
+    funcionarios.nome
+  } tem o salario bruto de  ${funcionarios.salarioBruto()} e teve ${
+    funcionarios.faltas
+  } faltas. Sua PLR foi de ${funcionarios.calcPlr()}`
+);
 
-
-}
-
-const funcionarios = new Funcionarios('Gabriel', 80, 30, 2)
-
-console.log(`O funcionario de nome ${funcionarios.nome} tem o salario bruto de  ${funcionarios.salarioBruto()} e teve ${funcionarios.faltas} faltas. Sua PLR foi de ${funcionarios.calcPlr()}`)
-
-console.log(`O funcionario de nome ${funcionarios.nome} tem o salario bruto de ${funcionarios.salarioBruto()} o desconto de ${funcionarios.descSalario()} a PLR de ${funcionarios.calcPlr()} e o seu salario líquido é de ${funcionarios.salarioLiquido()}  }`)
-
-
+console.log(
+  `O funcionário de nome ${
+    funcionarios.nome
+  } tem o salario bruto de ${funcionarios.salarioBruto()} o desconto de ${funcionarios.descSalario()} a PLR de ${funcionarios.calcPlr()} e o seu salario líquido é de ${funcionarios.salarioLiquido()}  }`
+);

@@ -48,23 +48,20 @@ var Produtos = /** @class */ (function () {
         if (this.quantidade <= 10) {
             return 0;
         }
-        else if (this.quantidade > 10 || this.quantidade <= 20) {
-            return this.preco * 0.1;
+        if (this.quantidade <= 20) {
+            return this.preco * this.quantidade * 0.1;
         }
-        if (this.quantidade > 21 || this.quantidade <= 50) {
-            return this.preco * 0.2;
+        if (this.quantidade <= 50) {
+            return this.preco * this.quantidade * 0.2;
         }
-        if (this.quantidade > 50) {
-            return this.preco * 0.25;
-        }
-        return 0;
+        return this.preco * this.quantidade * 0.25;
     };
     Produtos.prototype.valorFinal = function () {
         return this.quantidade * this.preco - this.desconto();
     };
     return Produtos;
 }());
-var produtos = new Produtos("Camisa", 2800, 11);
+var produtos = new Produtos("Camisa", 10, 100);
 console.log("O produto " + produtos.produto + " de pre\u00E7o " + produtos.preco + ", quantidade comprada de " + produtos.quantidade + ", teve o desconto de " + produtos.desconto() + "  e o valor pago foi " + produtos.valorFinal() + "}");
 //try {
 // produtos.produto = "";

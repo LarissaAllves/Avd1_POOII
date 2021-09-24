@@ -81,7 +81,7 @@ var Funcionarios = /** @class */ (function () {
             return this.salarioBruto() * 0.92;
         }
         else if (this.faltas === 3) {
-            return this.salarioBruto() * 0.90;
+            return this.salarioBruto() * 0.9;
         }
         else if (this.faltas === 4) {
             return this.salarioBruto() * 0.88;
@@ -98,6 +98,6 @@ var Funcionarios = /** @class */ (function () {
     };
     return Funcionarios;
 }());
-var funcionarios = new Funcionarios('Gabriel', 80, 30, 2);
-console.log("O funcionario de nome " + funcionarios.nome + " tem o salario bruto de  " + funcionarios.salarioBruto() + " e teve " + funcionarios.faltas + " faltas. Sua PLR foi de " + funcionarios.calcPlr());
-console.log("O funcionario de nome " + funcionarios.nome + " tem o salario bruto de " + funcionarios.salarioBruto() + " o desconto de " + funcionarios.descSalario() + " a PLR de " + funcionarios.calcPlr() + " e o seu salario l\u00EDquido \u00E9 de " + funcionarios.salarioLiquido() + "  }");
+var funcionarios = new Funcionarios("Gabriel", 80, 30, 2);
+console.log("O funcion\u00E1rio de nome " + funcionarios.nome + " tem o salario bruto de  " + funcionarios.salarioBruto() + " e teve " + funcionarios.faltas + " faltas. Sua PLR foi de " + funcionarios.calcPlr());
+console.log("O funcion\u00E1rio de nome " + funcionarios.nome + " tem o salario bruto de " + funcionarios.salarioBruto() + " o desconto de " + funcionarios.descSalario() + " a PLR de " + funcionarios.calcPlr() + " e o seu salario l\u00EDquido \u00E9 de " + funcionarios.salarioLiquido() + "  }");
